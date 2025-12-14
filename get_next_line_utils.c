@@ -4,8 +4,6 @@ int ft_strlen(const char *s)
     int i;
 
     i = 0;
-	if (!s)
-        return (0);
     while (s[i])
         i++;
     return (i);
@@ -18,12 +16,6 @@ char *ft_strjoin( char *s1, char *s2, int bytes)
 	int		j;
 
 	i = 0;
-	if (!s1)
-	{
-    	s1 = ft_calloc(1, 1);
-    	if (!s1)
-        	return (NULL);
-	}
 	sizetotal = ft_strlen(s1) + ft_strlen(s2);
 	res = malloc(sizeof(char) * (sizetotal + 1));
 	if (!res || !s1 || !s2)
@@ -34,7 +26,7 @@ char *ft_strjoin( char *s1, char *s2, int bytes)
 		i++;
 	}
 	j = 0;
-	while (j < bytes && s2[j])
+	while (j < bytes)
 	{
 		res[i] = s2[j];
 		i++;
@@ -49,8 +41,6 @@ char	*ft_strchr(const char *string, int searchedChar)
 	int	length;
 
 	i = 0;
-	if (!string)
-		return (NULL);
 	length = ft_strlen(string);
 	while (i <= length)
 	{
